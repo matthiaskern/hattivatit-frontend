@@ -19,6 +19,7 @@ export default function channelsMiddleware(url, channel = "room") {
         
             } else {
                 const [param, token] = window.location.hash.split('=');
+                debugger;
     
                 if (param === '#access_token') {
                     localStorage.setItem('insta_token', token);
@@ -27,6 +28,9 @@ export default function channelsMiddleware(url, channel = "room") {
                 }
             }
         }
+        console.log('init')
+
+        init();
 
         return next => action => {
             // Set up actions to intercept here
