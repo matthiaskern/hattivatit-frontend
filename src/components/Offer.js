@@ -17,7 +17,9 @@ class Offer extends Component {
             <div className="OfferDivMain">
                 
                 <div className="OfferLeft">
-                    {price} {to}
+                    <p className="city">{to}</p>
+                    <p className="from">from</p>
+                    <p className="price">{price} eur</p>
                 </div>
 
                 <div className="OfferRight">
