@@ -9,8 +9,8 @@ export  default function instagramMiddleware() {
 
         function init() {
             const url = 'https://api.instagram.com/oauth/authorize/?client_id=925edd4e1ada41f0b0e00ab519691d73&redirect_uri=http://localhost:3000&response_type=token&scope=likes+comments+public_content';
-            const token = localStorage.getItem('insta_token');
-    
+            const token = store.getState().instaToken;    
+
             if (token) {
               fetchLikes(token);
             } else {
