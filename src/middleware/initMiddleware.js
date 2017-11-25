@@ -1,6 +1,8 @@
 import registerServiceWorker from '../registerServiceWorker';
 import { INIT, RECEIVE_DATA, SET_TOKEN } from '../actions';
 
+const CLIENT_ID = '925edd4e1ada41f0b0e00ab519691d73';
+
 export  default function instagramMiddleware() {
     // Use ES6 functional currying
     return store => {
@@ -8,7 +10,7 @@ export  default function instagramMiddleware() {
         registerServiceWorker()
 
         function init() {
-            const url = 'https://api.instagram.com/oauth/authorize/?client_id=925edd4e1ada41f0b0e00ab519691d73&redirect_uri=http://localhost:3000&response_type=token&scope=likes+comments+public_content';
+        const url = `https://api.instagram.com/oauth/authorize/?client_id=${CLIENT_ID}&redirect_uri=${window.location.origin}&response_type=token&scope=likes+comments+public_content`;
             const token = store.getState().instaToken;    
 
             if (token) {

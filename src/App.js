@@ -28,11 +28,14 @@ class App extends Component {
           {this.props.instaToken ? (
             <Slider className="App" {...this.settings}>
               <div>
+                <audio controls> 
+                  <source src="https://p.scdn.co/mp3-preview/f7a1b8a270f310e43ced2720c9af5f29f6476b79?cid=774b29d4f13844c495f206cafdad9c86" />
+                </audio>
                 <BannerContainer />
                 {this.props.data && (
                   <ul>
                     {this.props.data.map(({ location, id }) => (
-                      <li key={id}>{location.name}</li>
+                      <li key={id}>{location && location.name}</li>
                     ))}
                   </ul>
                 )}
