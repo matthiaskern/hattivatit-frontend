@@ -15,11 +15,13 @@ class InstagramReel extends Component {
         const { sources } = this.props
         return(
             <div className="InstagramReelDiv">
-                {sources.map(source => <div className="InstagramBox"><img
+                {sources.map(source => <div className="InstagramBox" key={source + 1}>
+                <img
                     key={source}
                     src={source} 
                     alt="Instagram image"
-                /></div>)}
+                /></div>
+                )}
             </div>
         )
     }
