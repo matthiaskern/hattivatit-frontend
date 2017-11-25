@@ -33,13 +33,13 @@
   display: grid;
   /* grid-template-columns: 30vw 30vw 30vw; */
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 3vw;
+  grid-gap: 0.5vw;
 }
 
 .InstagramBox {
   position: relative;
-  width: 30v;
-  height: 30vw;
+  width: 32v;
+  height: 32vw;
   overflow: hidden;
 }
 
@@ -57,16 +57,25 @@
 
 .OfferDivMain {
   display: flex;
+  flex-direction: row;
   height: 30vw;
 }
 
 .OfferLeft {
-  display: inline-block;
   height: 100%;
+  width: 50vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  text-transform: uppercase;
 }
 
 .OfferRight {
-  display: inline-block;
+  width: 50vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .BookNow {
@@ -79,6 +88,21 @@
     display: inline-block;
     font-size: 20px;
     font-weight: normal;
+    margin-right: 5vw;
+}
+
+.city {
+  font-size: 1.5em;
+}
+
+.from {
+  color: #0D1973;
+  display: inline-block;
+}
+
+.price {
+  color: #0D1973;
+  display: inline-block;
 }
 
 

@@ -17,7 +17,9 @@ class Offer extends Component {
             <div className="OfferDivMain">
                 
                 <div className="OfferLeft">
-
+                    <p className="city">san diego</p>
+                    <p className="from">from</p>
+                    <p className="price">1025 eur</p>
                 </div>
 
                 <div className="OfferRight">
@@ -32,5 +34,11 @@ class Offer extends Component {
 
     }
 }
+
+/*
+                    <h1 className="city">san diego</h1>
+                    <h3 className="from">from</h3>
+                    <h2 className="price">1025 eur</h2>
+*/
 
 export default Offer
