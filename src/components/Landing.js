@@ -9,7 +9,7 @@ class Landing extends Component {
         <img src={logo} style={{ width: '100%' }} />
         {this.props.instaToken ? (
           <p>
-            <button onClick={this.props.fetchOffers} className="BookNow">
+            <button onClick={this.props.fetchLikes} className="BookNow">
               Offers
             </button>
           </p>

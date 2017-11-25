@@ -9,11 +9,13 @@ import Landing from './components/Landing';
 import Carousel from './components/Carousel';
 
 class App extends Component {
+
   componentWillReceiveProps(nextProps) {
     if (!this.props.data && nextProps.data) {
       const locations = nextProps.data.map(
         ({ location }) => location.name.split(',')[0]
       );
+
       this.props.fetchOffers(locations);
     }
   }
@@ -42,8 +44,8 @@ export default connect(
     fetchLikes() {
       dispatch({ type: FETCH_LIKES });
     },
-    fetchOffers() {
-      dispatch({ type: FETCH_OFFERS, payload: ownProps.data });
+    fetchOffers(locations) {
+      dispatch({ type: FETCH_OFFERS, payload: locations });
     }
   })
 )(App);

@@ -28,10 +28,14 @@ export  default function instagramMiddleware() {
         }
 
         function fetchLikes() {
+          
           const token = store.getState().instaToken;
-          const url = `https://api.instagram.com/v1/users/self/media/liked?access_token=${token}`;
+          if (token) {
 
-          return fetch(url).then(res => res.json()).then(data => store.dispatch({type: RECEIVE_LIKES, payload: data}))
+            const url = `https://api.instagram.com/v1/users/self/media/liked?access_token=${token}`;
+            fetch(url).then(res => res.json()).then(data => store.dispatch({type: RECEIVE_LIKES, payload: data}))
+          }
+
         }
         
         const offersUrl = 'https://hattivatit.azurewebsites.net/api/getofferlist';
@@ -64,6 +68,7 @@ export  default function instagramMiddleware() {
         
                 case FETCH_LIKES:
                   fetchLikes();
+                  break;
 
                 case FETCH_OFFERS:
                   fetchOffers(action.payload);
