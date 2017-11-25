@@ -29,52 +29,31 @@
 .InstagramReelDiv {
   overflow: auto;
   height: 45vw;
+  width: 100vw;
   display: grid;
-  grid-template-columns: 100px 100px 100px;
-  grid-gap: 10px;
+  /* grid-template-columns: 30vw 30vw 30vw; */
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 3vw;
 }
 
 .InstagramBox {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 30v;
+  height: 30vw;
   overflow: hidden;
 }
 
 .InstagramBox img {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  height: 100%;
-  width: auto;
-  -webkit-transform: translate(-50%,-50%);
-      -ms-transform: translate(-50%,-50%);
-          transform: translate(-50%,-50%);
-}
-
-
-/* 
-.thumbnail {
-  position: relative;
-  width: 200px;
-  height: 200px;
   overflow: hidden;
-}
-.thumbnail img {
-  position: absolute;
   left: 50%;
   top: 50%;
   height: 100%;
-  width: auto;
+  width: 100%;
   -webkit-transform: translate(-50%,-50%);
       -ms-transform: translate(-50%,-50%);
           transform: translate(-50%,-50%);
 }
-.thumbnail img.portrait {
-  width: 100%;
-  height: auto;
-}
-*/
 
 
 ::-webkit-scrollbar { 
