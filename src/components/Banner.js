@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Banner = ({ src }) => {
+const Banner = ({ src, title }) => {
     console.log(src)
     return <div className="Banner">
                 <img
@@ -8,7 +8,7 @@ const Banner = ({ src }) => {
                 src={src} 
                 alt="italy"
                 />
-                <div id="overlay">WET</div>
+                <div id="overlay">{title}</div>
                 <svg id="blursvg" width="450" height="100" viewBox="0 0 450 100">
                         <defs>
                                 <filter id="blur">
