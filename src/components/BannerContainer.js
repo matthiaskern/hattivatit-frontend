@@ -1,10 +1,11 @@
 import { connect } from 'react-redux'
 import Banner from './Banner'
 
+const italy = require('../assets/italy.jpg')
 
 const mapStateToProps = state => {
     return {
-      src: "http://blank"
+      src: italy
     }
   }
 
