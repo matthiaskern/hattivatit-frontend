@@ -18,7 +18,7 @@ export default class Carousel extends Component {
       <Slider className="App" {...settings}>
         {this.props.offers.map(offer => (
           <div key={offer.to}>
-            <audio controls>
+            <audio controls style={{ display: 'none' }}>
               <source src={offer.trackUrl} />
             </audio>
             <BannerContainer />
