@@ -31,7 +31,6 @@
   height: 45vw;
   width: 100vw;
   display: grid;
-  /* grid-template-columns: 30vw 30vw 30vw; */
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 0.5vw;
 }
@@ -63,46 +62,71 @@
 
 .OfferLeft {
   height: 100%;
-  width: 50vw;
+  width: 60vw;
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: row;
   text-transform: uppercase;
 }
 
 .OfferRight {
-  width: 50vw;
+  width: 40vw;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .BookNow {
     background-color: #0D1973;
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 0.6em 1.3em;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 20px;
+    font-size: 1.2em;
     font-weight: normal;
     margin-right: 5vw;
 }
 
+.likeWrapper {
+  width: 20%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.likeWrapper img {
+  
+}
+
+.offerWrapper {
+  width: 80%;
+  text-align: left;
+  padding-left: 2em;
+}
+
 .city {
-  font-size: 1.5em;
+  font-size: 2.2em;
+  margin-top: 0.9em;
+  margin-bottom: 0.1em;
+  font-family: Helvetica;
+  color: rgb(75, 75, 75);
 }
 
 .from {
+  margin-top: 0.2em;
   color: #0D1973;
   display: inline-block;
+  font-size: 1.1em;
 }
 
 .price {
+  margin-top: 0.0em;
+  font-family: 'Teko', sans-serif;
   color: #0D1973;
   display: inline-block;
+  font-size: 2.3em;
+  font-weight: bold;
 }
 
 
@@ -113,16 +137,16 @@
 
 .Banner {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 100vw;
+  height: 60vw;
   overflow: hidden;
 }
 .Banner img {
   position: absolute;
   left: 50%;
   top: 50%;
-  height: 100%;
-  width: auto;
+  height: auto;
+  width: 100%;
   -webkit-transform: translate(-50%,-50%);
       -ms-transform: translate(-50%,-50%);
           transform: translate(-50%,-50%);

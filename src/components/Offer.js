@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+const emptyLike = require('../assets/Empty-like.svg')
+
 class Offer extends Component {
     constructor(props) {
         super(props)
@@ -16,9 +18,15 @@ class Offer extends Component {
         return(
             <div className="OfferDivMain">
                 <div className="OfferLeft">
-                    <p className="city">{to}</p>
-                    <p className="from">from</p>
-                    <p className="price">{price} eur</p>
+                    <div className="likeWrapper">
+                        <img src={emptyLike} className="likeButton" />
+                    </div>
+
+                    <div className="offerWrapper">
+                        <p className="city">{to}</p>
+                        <p className="from">from&nbsp;</p>
+                        <p className="price">{price} eur</p>
+                    </div>
                 </div>
 
                 <div className="OfferRight">
