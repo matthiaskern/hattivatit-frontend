@@ -1,6 +1,6 @@
 import registerServiceWorker from '../registerServiceWorker';
 
-export default function channelsMiddleware(url, channel = "room") {
+export default function instagramMiddleware() {
     // Use ES6 functional currying
     return store => {
 

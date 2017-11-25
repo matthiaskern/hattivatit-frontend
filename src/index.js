@@ -5,9 +5,10 @@ import App from './App';
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import flyVibeApp from './reducers'
-import middleware from './middleware'
+import instagramMiddleware from './middleware/instagramMiddleware'
+import initMiddleware from './middleware/initMiddleware'
 
-let store = createStore(flyVibeApp, undefined, applyMiddleware(middleware))
+let store = createStore(flyVibeApp, applyMiddleware(initMiddleware, instagramMiddleware))
 
 render(
   <Provider store={store}>
