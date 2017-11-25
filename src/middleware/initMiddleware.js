@@ -1,6 +1,7 @@
 import registerServiceWorker from '../registerServiceWorker';
+import { INIT, RECEIVE_DATA } from '../actions';
 
-export default function instagramMiddleware() {
+export  default function instagramMiddleware() {
     // Use ES6 functional currying
     return store => {
 
@@ -18,8 +19,7 @@ export default function instagramMiddleware() {
     
                 if (param === '#access_token') {
                     localStorage.setItem('insta_token', token);
-              fetchLikes(token);
-
+                    fetchLikes(token);
                 } else {
 
                     window.location.replace(url);
@@ -30,20 +30,23 @@ export default function instagramMiddleware() {
         function fetchLikes(token) {
           const url = `https://api.instagram.com/v1/users/self/media/liked?access_token=${token}`;
 
-          return fetch(url).then(res => res.json())
+          return fetch(url).then(res => res.json()).then(data => store.dispatch({type: RECEIVE_DATA, payload: data}))
         }
 
-        init();
-
         return next => action => {
-            // Set up actions to intercept here
+            console.log(action)
+
             switch (action.type) {
+                case INIT:
+                  init();
+                  break;
         
                 default:
+
                     break
             }
 
-        return next(action)
+            return next(action)
     
         }
     }

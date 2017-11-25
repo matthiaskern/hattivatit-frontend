@@ -1,3 +1,4 @@
+import { INIT } from '../actions';
 export default function instagramMiddleware() {
     // Use ES6 functional currying
     return store => {
@@ -5,6 +6,9 @@ export default function instagramMiddleware() {
         return next => action => {
             // Set up actions to intercept here
             switch (action.type) {
+                
+                case INIT:
+                    console.log('init');
         
                 default:
                     break
