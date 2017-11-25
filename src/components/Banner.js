@@ -2,9 +2,9 @@ import React from 'react'
 
 const Banner = ({ src }) => {
     console.log(src)
-    return <div>
+    return <div className="Banner">
             <img
-                className="BannerImage" 
+                className="Portrait" 
                 src={src} 
                 alt="italy"
                 />
