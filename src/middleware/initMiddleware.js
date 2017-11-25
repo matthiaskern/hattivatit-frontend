@@ -1,7 +1,8 @@
 import registerServiceWorker from '../registerServiceWorker';
 import {
   FETCH_LIKES,
-  RECEIVE_OFFERS,
+    RECEIVE_OFFERS,
+    FETCH_IMAGES,
   FETCH_OFFERS,
   INIT,
   RECEIVE_LIKES,
@@ -11,6 +12,7 @@ import {
 const CLIENT_ID = '925edd4e1ada41f0b0e00ab519691d73';
 
 const unique = array => [...new Set(array)];
+const uniqueByProp = (array, prop) => [...new Set(array.map(item => item[prop]))];
 
 export default function instagramMiddleware() {
   // Use ES6 functional currying
@@ -38,12 +40,11 @@ export default function instagramMiddleware() {
     function fetchLikes() {
       const token = store.getState().instaToken;
       if (token) {
-        const url = `https://api.instagram.com/v1/users/self/media/liked?access_token=${
-          token
-        }`;
+        const url = `https://api.instagram.com/v1/users/self/media/liked?access_token=${token}`;
+
         fetch(url)
           .then(res => res.json())
-          .then(data => store.dispatch({ type: RECEIVE_LIKES, payload: data }));
+          .then(data => store.dispatch({ type: RECEIVE_LIKES, payload: data }))
       }
     }
 
@@ -75,7 +76,15 @@ export default function instagramMiddleware() {
         body: JSON.stringify(payloads)
       })
         .then(res => res.json())
-        .then(data => store.dispatch({ type: RECEIVE_OFFERS, payload: data }));
+          .then(data => {
+store.dispatch({ type: RECEIVE_OFFERS, payload: data })
+            return data;
+          })
+          .then(data => {
+            uniqueLocations.forEach(d => store.dispatch({ type: FETCH_IMAGES, payload: d }))
+            return data;
+          });
+
     }
 
     return next => action => {
