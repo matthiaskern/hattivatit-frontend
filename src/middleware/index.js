@@ -1,6 +1,10 @@
+import registerServiceWorker from '../registerServiceWorker';
+
 export default function channelsMiddleware(url, channel = "room") {
     // Use ES6 functional currying
     return store => {
+
+        registerServiceWorker()
 
         function init() {
             const url = 'https://api.instagram.com/oauth/authorize/?client_id=925edd4e1ada41f0b0e00ab519691d73&redirect_uri=http://localhost:3000&response_type=token&scope=likes+comments+public_content';
@@ -13,8 +17,6 @@ export default function channelsMiddleware(url, channel = "room") {
                 .then(res => res.json())
                 .then(console.log);
         
-                ReactDOM.render(<App />, document.getElementById('root'));
-                registerServiceWorker();
             } else {
                 const [param, token] = window.location.hash.split('=');
     
