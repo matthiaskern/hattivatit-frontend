@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Slider from 'react-slick';
-import SET_BANNER from '../actions'
+import { SET_BANNER } from '../actions'
 
 class InstagramReel extends Component {
     constructor(props) {
@@ -9,10 +9,10 @@ class InstagramReel extends Component {
     }
 
     handleClick(url) {
-        // store.dispatch({ 
-        //     type: SET_BANNER, 
-        //     url: url
-        // })
+        this.props.dispatch({ 
+            type: SET_BANNER, 
+            url: url
+        })
     }
 
     render() {
