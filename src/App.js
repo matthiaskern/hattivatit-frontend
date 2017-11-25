@@ -28,6 +28,9 @@ class App extends Component {
           {this.props.instaToken ? (
             <Slider className="App" {...this.settings}>
               <div>
+                <audio controls autoPlay> 
+                  <source src="https://p.scdn.co/mp3-preview/f7a1b8a270f310e43ced2720c9af5f29f6476b79?cid=774b29d4f13844c495f206cafdad9c86" />
+                </audio>
                 <BannerContainer />
                 {this.props.data && (
                   <ul>
