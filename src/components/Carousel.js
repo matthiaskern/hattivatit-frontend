@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import BannerContainer from './BannerContainer';
+import Banner from './Banner';
 import Slider from 'react-slick';
 import InstagramReelContainer from './InstagramReelContainer'
 import Offer from './Offer'
@@ -21,7 +21,7 @@ export default class Carousel extends Component {
             <audio controls style={{ display: 'none' }}>
               <source src={offer.trackUrl} />
             </audio>
-            <BannerContainer src={offer.images && offer.images[0].images.standard_resolution.url} title={offer.artist + ' - ' + offer.trackName} />
+            <Banner src={offer.images && offer.images[0].images.standard_resolution.url} title={offer.artist + ' - ' + offer.trackName} />
             <Offer to={offer.to} price={offer.price} />
             {offer.images && 
             <InstagramReelContainer sources={offer.images.map(i => i.images.standard_resolution.url)}/> }
