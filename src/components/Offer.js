@@ -1,11 +1,16 @@
 import React, { Component } from 'react'
 
 const emptyLike = require('../assets/Empty-like.svg')
+const hoverLike = require('../assets/Liked-like.svg')
 
 class Offer extends Component {
     constructor(props) {
         super(props)
         this.handleClick = this.handleClick.bind(this)
+
+        this.state = {
+            hover: false
+        }
     }
 
     handleClick(url) {
@@ -14,12 +19,14 @@ class Offer extends Component {
 
     render() {
         const { to, price } = this.props
+        let hover
+        this.state.hover ? hover = hoverLike : hover = emptyLike
 
         return(
             <div className="OfferDivMain">
                 <div className="OfferLeft">
                     <div className="likeWrapper">
-                        <img src={emptyLike} className="likeButton" />
+                        <img src={hover} className="likeButton" />
                     </div>
 
                     <div className="offerWrapper">
@@ -32,7 +39,8 @@ class Offer extends Component {
                 <div className="OfferRight">
                     <button
                         className="BookNow"
-                        onClick={() => this.handleClick()}
+                        onMouseEnter={() => this.setState({hover: true})}
+                        onMouseLeave={() => this.setState({hover: false})}
                         >BOOK NOW</button>
                 </div>
                 
