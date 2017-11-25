@@ -8,7 +8,9 @@ import flyVibeApp from './reducers'
 import instagramMiddleware from './middleware/instagramMiddleware'
 import initMiddleware from './middleware/initMiddleware'
 
-let store = createStore(flyVibeApp, applyMiddleware(initMiddleware, instagramMiddleware))
+const store = createStore(flyVibeApp, {
+  instaToken: localStorage.getItem('insta_token')
+}, applyMiddleware(initMiddleware(), instagramMiddleware()))
 
 render(
   <Provider store={store}>
