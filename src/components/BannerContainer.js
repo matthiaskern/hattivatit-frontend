@@ -5,7 +5,7 @@ const italy = require('../assets/italy.jpg')
 
 const mapStateToProps = state => {
     return {
-      src: italy
+    // src: italy
     }
   }
 
