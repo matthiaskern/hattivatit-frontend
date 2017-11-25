@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import BannerContainer from './BannerContainer';
 import Slider from 'react-slick';
+import InstagramReelContainer from './InstagramReelContainer'
 
 const settings = {
   dots: false,
@@ -31,6 +32,7 @@ export default class Carousel extends Component {
               <li key={id}>{location && location.name}</li>
             ))}
           </ul>
+          <InstagramReelContainer />
         </div>
       </Slider>
     );
