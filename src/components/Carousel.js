@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import BannerContainer from './BannerContainer';
 import Slider from 'react-slick';
 import InstagramReelContainer from './InstagramReelContainer'
-import OfferContainer from './OfferContainer'
+import Offer from './Offer'
 
 const settings = {
   dots: false,
@@ -16,31 +16,18 @@ export default class Carousel extends Component {
   render() {
     return (
       <Slider className="App" {...settings}>
-        <div>
-          <audio controls>
-            <source src="https://p.scdn.co/mp3-preview/f7a1b8a270f310e43ced2720c9af5f29f6476b79?cid=774b29d4f13844c495f206cafdad9c86" />
-          </audio>
-          <BannerContainer />
-            <OfferContainer />
-          <InstagramReelContainer />
-        </div>
+        {this.props.offers.map(offer => (
+          <div key={offer.to}>
+            <audio controls>
+              <source src={offer.trackUrl} />
+            </audio>
+            <BannerContainer />
+            <Offer to={offer.to} price={offer.price} />
+            <InstagramReelContainer />
+          </div>
+        ))}
       </Slider>
     );
   }
 }
 
-
-/*
-          {this.props.offers &&
-          
-          <h2>
-            { this.props.offers[0].to } - 
-            { this.props.offers[0].price }
-          </h2>}
-
-          <ul>
-            {this.props.data.map(({ location, id }) => (
-              <li key={id}>{location && location.name}</li>
-            ))}
-          </ul>
-*/

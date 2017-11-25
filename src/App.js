@@ -9,12 +9,11 @@ import Landing from './components/Landing';
 import Carousel from './components/Carousel';
 
 class App extends Component {
-  componentWillMount() {
-    this.props.fetchInitial();
-  }
   componentWillReceiveProps(nextProps) {
     if (!this.props.data && nextProps.data) {
-      const locations = nextProps.data.map(({ location }) => location.name.split(',')[0]);
+      const locations = nextProps.data.map(
+        ({ location }) => location.name.split(',')[0]
+      );
       this.props.fetchOffers(locations);
     }
   }
@@ -22,10 +21,10 @@ class App extends Component {
     return (
       <div className="App">
         <main>
-          {this.props.instaToken && this.props.data ?  (
+          {this.props.offers ? (
             <Carousel {...this.props} />
           ) : (
-            <Landing />
+            <Landing {...this.props} />
           )}
         </main>
       </div>
@@ -38,9 +37,9 @@ export default connect(
   dispatch => ({
     fetchInitial() {
       dispatch({ type: INIT });
-      },
-      fetchOffers(locations) {
-        dispatch({ type: FETCH_OFFERS, payload: locations })
-      }
+    },
+    fetchOffers(locations) {
+      dispatch({ type: FETCH_OFFERS, payload: locations });
+    }
   })
 )(App);

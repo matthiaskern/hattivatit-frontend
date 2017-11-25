@@ -3,6 +3,9 @@ import { RECEIVE_OFFERS, FETCH_OFFERS, INIT, RECEIVE_DATA, SET_TOKEN } from '../
 
 const CLIENT_ID = '925edd4e1ada41f0b0e00ab519691d73';
 
+
+const unique = array => [...new Set(array)]
+
 export  default function instagramMiddleware() {
     // Use ES6 functional currying
     return store => {
@@ -49,7 +52,8 @@ export  default function instagramMiddleware() {
             dateTo: '2018-02-08'
           };
 
-          const payloads = locations.filter(name => !name.toLowerCase().startsWith('rey')).map(to => ({...commonPayload, to}));
+          const uniqueLocations = unique(locations )
+          const payloads = uniqueLocations.filter(name => !name.toLowerCase().startsWith('rey')).map(to => ({...commonPayload, to}));
 
 
 

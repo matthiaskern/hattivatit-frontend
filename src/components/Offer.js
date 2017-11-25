@@ -11,13 +11,13 @@ class Offer extends Component {
     }
 
     render() {
-        const { city, price, bookUrl } = this.props
+        const { to, price } = this.props
 
         return(
             <div className="OfferDivMain">
                 
                 <div className="OfferLeft">
-
+                    {price} {to}
                 </div>
 
                 <div className="OfferRight">

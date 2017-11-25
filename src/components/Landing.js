@@ -6,7 +6,15 @@ class Landing extends Component {
     return (
       <div>
         <img src={logo} style={{ width: '100%' }} />
-        <p>You're not logged in yet. Redirecting... </p>
+        {this.props.instaToken ? (
+          <p>
+            <button onClick={this.props.fetchInitial} className="BookNow">
+              Offers
+            </button>
+          </p>
+        ) : (
+          <p>You're not logged in yet. Redirecting... </p>
+        )}
       </div>
     );
   }

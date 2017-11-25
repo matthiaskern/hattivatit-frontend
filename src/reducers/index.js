@@ -12,7 +12,7 @@ function flyVibeApp(state = {}, action) {
             return Object.assign({}, state, { instaToken: token })
 
         case RECEIVE_OFFERS:
-            return Object.assign({}, state, { offers: [action.payload] })
+            return Object.assign({}, state, { offers: action.payload })
         
         default:
             return state
