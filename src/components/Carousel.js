@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import BannerContainer from './BannerContainer';
 import Slider from 'react-slick';
 import InstagramReelContainer from './InstagramReelContainer'
+import OfferContainer from './OfferContainer'
 
 const settings = {
   dots: false,
@@ -20,6 +21,16 @@ export default class Carousel extends Component {
             <source src="https://p.scdn.co/mp3-preview/f7a1b8a270f310e43ced2720c9af5f29f6476b79?cid=774b29d4f13844c495f206cafdad9c86" />
           </audio>
           <BannerContainer />
+            <OfferContainer />
+          <InstagramReelContainer />
+        </div>
+      </Slider>
+    );
+  }
+}
+
+
+/*
           {this.props.offers &&
           
           <h2>
@@ -32,9 +43,4 @@ export default class Carousel extends Component {
               <li key={id}>{location && location.name}</li>
             ))}
           </ul>
-          <InstagramReelContainer />
-        </div>
-      </Slider>
-    );
-  }
-}
+*/

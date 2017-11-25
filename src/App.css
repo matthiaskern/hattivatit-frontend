@@ -55,6 +55,32 @@
           transform: translate(-50%,-50%);
 }
 
+.OfferDivMain {
+  display: flex;
+  height: 30vw;
+}
+
+.OfferLeft {
+  display: inline-block;
+  height: 100%;
+}
+
+.OfferRight {
+  display: inline-block;
+}
+
+.BookNow {
+    background-color: #0D1973;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: normal;
+}
+
 
 ::-webkit-scrollbar { 
   display: none; 
