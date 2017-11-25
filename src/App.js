@@ -14,7 +14,8 @@ class App extends Component {
   }
   componentWillReceiveProps(nextProps) {
     if (!this.props.data && nextProps.data) {
-      this.props.fetchOffers();
+      const locations = nextProps.data.map(({ location }) => location.name.split(',')[0]);
+      this.props.fetchOffers(locations);
     }
   }
   render() {
@@ -38,8 +39,8 @@ export default connect(
     fetchInitial() {
       dispatch({ type: INIT });
       },
-      fetchOffers() {
-        dispatch({ type: FETCH_OFFERS })
+      fetchOffers(locations) {
+        dispatch({ type: FETCH_OFFERS, payload: locations })
       }
   })
 )(App);

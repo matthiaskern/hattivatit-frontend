@@ -10,7 +10,7 @@ export  default function instagramMiddleware() {
         registerServiceWorker()
 
         function init() {
-        const url = `https://api.instagram.com/oauth/authorize/?client_id=${CLIENT_ID}&redirect_uri=${window.location.origin}&response_type=token&scope=likes+comments+public_content`;
+            const url = `https://api.instagram.com/oauth/authorize/?client_id=${CLIENT_ID}&redirect_uri=${window.location.origin}&response_type=token&scope=likes+comments+public_content`;
             const token = store.getState().instaToken;    
 
             if (token) {
@@ -37,16 +37,23 @@ export  default function instagramMiddleware() {
           return fetch(url).then(res => res.json()).then(data => store.dispatch({type: RECEIVE_DATA, payload: data}))
         }
         
-        const offersUrl = 'https://hattivatit.azurewebsites.net/api/getoffer';
+        const offersUrl = 'https://hattivatit.azurewebsites.net/api/getofferlist';
 
         function fetchOffers(locations = ['Berlin']) {
           const headers = new Headers();
           headers.append("Content-Type", "application/json");
 
-          return fetch(offersUrl, { method: 'POST', headers, body: JSON.stringify({from: 'Helsinki', to: locations[0],
+          const commonPayload = {
+            from: 'Helsinki', 
             dateFrom: '2018-01-01',
             dateTo: '2018-02-08'
-          })}).then(res => res.json()).then(data => store.dispatch({type: RECEIVE_OFFERS, payload: data}))
+          };
+
+          const payloads = locations.filter(name => !name.toLowerCase().startsWith('rey')).map(to => ({...commonPayload, to}));
+
+
+
+          return fetch(offersUrl, { method: 'POST', headers, body: JSON.stringify(payloads)}).then(res => res.json()).then(data => store.dispatch({type: RECEIVE_OFFERS, payload: data}))
         }
 
         return next => action => {
@@ -58,7 +65,7 @@ export  default function instagramMiddleware() {
                   break;
         
                 case FETCH_OFFERS:
-                  fetchOffers();
+                  fetchOffers(action.payload);
                   break;
 
                 default:
@@ -67,7 +74,6 @@ export  default function instagramMiddleware() {
             }
 
             return next(action)
-    
         }
     }
 }
