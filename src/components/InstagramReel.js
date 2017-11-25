@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Slider from 'react-slick';
+import SET_BANNER from '../actions'
 
 class InstagramReel extends Component {
     constructor(props) {
@@ -7,8 +8,11 @@ class InstagramReel extends Component {
         this.handleClick = this.handleClick.bind(this)
     }
 
-    handleClick(index) {
-
+    handleClick(url) {
+        // store.dispatch({ 
+        //     type: SET_BANNER, 
+        //     url: url
+        // })
     }
 
     render() {
@@ -20,6 +24,7 @@ class InstagramReel extends Component {
                     key={source}
                     src={source} 
                     alt="Instagram image"
+                    onClick={() => this.handleClick(source)}
                 /></div>
                 )}
             </div>
