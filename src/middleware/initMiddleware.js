@@ -67,7 +67,7 @@ export default function instagramMiddleware() {
         .map(to => ({
           ...commonPayload,
           to,
-          instaUrl: `https://api.instagram.com/v1/tags/${to}/media/recent?access_token=${instaToken}`
+          instaUrl: `https://api.instagram.com/v1/tags/${to.replace(/\s/g, '')}/media/recent?access_token=${instaToken}`
         }));
 
       return fetch(offersUrl, {
