@@ -22,8 +22,85 @@
   font-size: large;
 }
 
-.BannerImage {
+/* .BannerImage {
   width: 100vw;
+} */
+
+.InstagramReelDiv {
+  overflow: auto;
+  height: 45vw;
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-gap: 10px;
+}
+
+.InstagramBox {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.InstagramBox img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+}
+
+
+/* 
+.thumbnail {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+.thumbnail img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+}
+.thumbnail img.portrait {
+  width: 100%;
+  height: auto;
+}
+*/
+
+
+::-webkit-scrollbar { 
+  display: none; 
+}
+
+
+.Banner {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+.Banner img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+}
+.thumbnail .Portrait {
+  width: 100%;
+  height: auto;
 }
 
 @keyframes App-logo-spin {
