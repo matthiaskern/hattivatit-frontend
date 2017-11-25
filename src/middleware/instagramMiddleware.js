@@ -8,7 +8,8 @@ export default function instagramMiddleware() {
             switch (action.type) {
                 
                 case INIT:
-                    console.log('init');
+                    console.log('init')
+                    break
         
                 default:
                     break
