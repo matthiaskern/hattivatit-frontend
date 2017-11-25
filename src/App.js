@@ -13,14 +13,21 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          Finnair Personalized Flight Search
         </header>
-        <BannerContainer />
-        { this.props.data &&
-          <ul>{this.props.data.map(({ location }) => <li>{location.name}</li>)}</ul>
-        }
+        {this.props.instaToken ? 
+          <div>
+            <BannerContainer />
+            { this.props.data &&
+              <ul>{this.props.data.map(({ location }) => <li>{location.name}</li>)}</ul>
+            }
+          </div>
 
+          : <div>
+              You're not logged in yet. Redirecting...
+            </div>
+        
+        }
       </div>
     );
   }

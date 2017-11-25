@@ -1,5 +1,5 @@
 import registerServiceWorker from '../registerServiceWorker';
-import { INIT, RECEIVE_DATA } from '../actions';
+import { INIT, RECEIVE_DATA, SET_TOKEN } from '../actions';
 
 export  default function instagramMiddleware() {
     // Use ES6 functional currying
@@ -18,11 +18,13 @@ export  default function instagramMiddleware() {
                 const [param, token] = window.location.hash.split('=');
     
                 if (param === '#access_token') {
-                    localStorage.setItem('insta_token', token);
+                    store.dispatch({ type: SET_TOKEN, payload: token })
                     fetchLikes(token);
                 } else {
 
-                    window.location.replace(url);
+                    setTimeout( () => { 
+                        window.location.replace(url);
+                    }, 500);
                 }
             }
         }
