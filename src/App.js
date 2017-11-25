@@ -5,44 +5,21 @@ import BannerContainer from './components/BannerContainer';
 import { INIT } from './actions';
 import { connect } from 'react-redux';
 import Slider from 'react-slick';
+import Landing from './components/Landing';
+import Carousel from './components/Carousel';
 
 class App extends Component {
   componentWillMount() {
     this.props.fetchInitial();
   }
-  settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1
-  };
-
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          Finnair Personalized Flight Search
-        </header>
         <main>
-          {this.props.instaToken ? (
-            <Slider className="App" {...this.settings}>
-              <div>
-                <audio controls> 
-                  <source src="https://p.scdn.co/mp3-preview/f7a1b8a270f310e43ced2720c9af5f29f6476b79?cid=774b29d4f13844c495f206cafdad9c86" />
-                </audio>
-                <BannerContainer />
-                {this.props.data && (
-                  <ul>
-                    {this.props.data.map(({ location, id }) => (
-                      <li key={id}>{location && location.name}</li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            </Slider>
+          {this.props.instaToken && this.props.data ?  (
+            <Carousel data={this.props.data} />
           ) : (
-            <div>You're not logged in yet. Redirecting...</div>
+            <Landing />
           )}
         </main>
       </div>
