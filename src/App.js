@@ -35,7 +35,7 @@ class App extends Component {
                 {this.props.data && (
                   <ul>
                     {this.props.data.map(({ location, id }) => (
-                      <li key={id}>{location.name}</li>
+                      <li key={id}>{location && location.name}</li>
                     ))}
                   </ul>
                 )}
