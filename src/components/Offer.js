@@ -17,7 +17,6 @@ class Offer extends Component {
 
         return(
             <div className="OfferDivMain">
-                
                 <div className="OfferLeft">
                     <div className="likeWrapper">
                         <img src={emptyLike} className="likeButton" />
