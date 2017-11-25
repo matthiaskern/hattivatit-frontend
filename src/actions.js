@@ -4,4 +4,6 @@ export const RECEIVE_LIKES = 'RECEIVE_LIKES';
 export const SET_TOKEN = 'SET_TOKEN'
 export const FETCH_OFFERS = 'FETCH_OFFERS';
 export const RECEIVE_OFFERS = 'RECEIVE_OFFERS'
+export const FETCH_IMAGES = 'FETCH_IMAGES'
+export const RECEIVE_IMAGES = 'RECEIVE_IMAGES'
 export const SET_BANNER = 'SET_BANNER'

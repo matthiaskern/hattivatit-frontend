@@ -23,7 +23,8 @@ export default class Carousel extends Component {
             </audio>
             <BannerContainer />
             <Offer to={offer.to} price={offer.price} />
-            <InstagramReelContainer />
+            {offer.images && 
+            <InstagramReelContainer sources={offer.images.map(i => i.images.standard_resolution.url)}/> }
           </div>
         ))}
       </Slider>
