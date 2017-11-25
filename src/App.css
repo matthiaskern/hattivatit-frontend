@@ -188,10 +188,6 @@
 #blursvg {
   position: absolute; 
   top: 0;
-<<<<<<< HEAD
   filter: blur(5px);
   display: none;
 }
-=======
-}
->>>>>>> 2fb9d174b03bab3d848d9ccaa8593a13224e22e9
