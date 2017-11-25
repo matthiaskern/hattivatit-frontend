@@ -62,7 +62,7 @@ export default function instagramMiddleware() {
 
       const uniqueLocations = unique(locations);
       const payloads = uniqueLocations
-        .filter(name => !name.startsWith('rey'))
+        .filter(name => !name.startsWith('Rey'))
         .map(to => ({
           ...commonPayload,
           to,
