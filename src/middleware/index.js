@@ -19,7 +19,6 @@ export default function channelsMiddleware(url, channel = "room") {
         
             } else {
                 const [param, token] = window.location.hash.split('=');
-                debugger;
     
                 if (param === '#access_token') {
                     localStorage.setItem('insta_token', token);
