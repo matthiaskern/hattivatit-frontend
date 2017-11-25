@@ -3,17 +3,22 @@ import logo from '../assets/world.png';
 
 class Landing extends Component {
   render() {
+  console.log(this.props)
     return (
       <div>
         <img src={logo} style={{ width: '100%' }} />
         {this.props.instaToken ? (
           <p>
-            <button onClick={this.props.fetchInitial} className="BookNow">
+            <button onClick={this.props.fetchOffers} className="BookNow">
               Offers
             </button>
           </p>
         ) : (
-          <p>You're not logged in yet. Redirecting... </p>
+          <p>
+            <button onClick={this.props.fetchInitial} className="BookNow">
+              Authenticate
+            </button>
+          </p>
         )}
       </div>
     );

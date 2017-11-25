@@ -15,7 +15,6 @@ class Offer extends Component {
 
         return(
             <div className="OfferDivMain">
-                
                 <div className="OfferLeft">
                     <p className="city">{to}</p>
                     <p className="from">from</p>

@@ -1,8 +1,9 @@
-import { RECEIVE_OFFERS, INIT, RECEIVE_DATA, SET_TOKEN } from '../actions';
+import { RECEIVE_OFFERS, INIT, RECEIVE_LIKES, SET_TOKEN } from '../actions';
+
 function flyVibeApp(state = {}, action) {
     
     switch (action.type) {
-        case RECEIVE_DATA: 
+        case RECEIVE_LIKES: 
             return Object.assign({}, state, { data: action.payload.data })
 
         case SET_TOKEN:
