@@ -11,23 +11,27 @@ export default function instagramMiddleware() {
             const token = localStorage.getItem('insta_token');
     
             if (token) {
-                fetch(
-                `https://api.instagram.com/v1/users/self/media/liked?access_token=${token}`
-                )
-                .then(res => res.json())
-                .then(console.log);
-        
+              fetchLikes(token);
             } else {
+
                 const [param, token] = window.location.hash.split('=');
     
                 if (param === '#access_token') {
                     localStorage.setItem('insta_token', token);
+              fetchLikes(token);
+
                 } else {
+
                     window.location.replace(url);
                 }
             }
         }
-        console.log('init')
+
+        function fetchLikes(token) {
+          const url = `https://api.instagram.com/v1/users/self/media/liked?access_token=${token}`;
+
+          return fetch(url).then(res => res.json())
+        }
 
         init();
 
