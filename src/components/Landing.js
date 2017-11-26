@@ -1,18 +1,34 @@
 import React, { Component } from 'react';
-import logo from '../assets/world.png';
+import worldSrc from '../assets/world.png';
+import logoSrc from '../assets/finnair.png';
+
 
 class Landing extends Component {
+  state = {
+    isFetching: false
+  };
+
   render() {
-  console.log(this.props)
     return (
-      <div>
-        <img src={logo} style={{ width: '100%' }} />
+      <div className="container">
+        <img src={worldSrc} className="img-responsive" />
         {this.props.instaToken ? (
-          <p>
-            <button onClick={this.props.fetchLikes} className="BookNow">
-              Offers
-            </button>
-          </p>
+          <div>
+            <p>
+              <button
+                onClick={() => {
+                  this.setState({ isFetching: true });
+                  this.props.fetchLikes();
+                }}
+                className={`BookNow $${this.state.isFetching ? 'pressed' : ''}`}
+              >
+                Offers
+              </button>
+            </p>
+            <p>
+              {this.state.isFetching && 'Aggregating personalized offers...'}
+            </p>
+          </div>
         ) : (
           <p>
             <button onClick={this.props.fetchInitial} className="BookNow">
@@ -20,6 +36,9 @@ class Landing extends Component {
             </button>
           </p>
         )}
+        <footer className="footer-bottom">
+          <img src={logoSrc} className="img-responsive"/>
+        </footer>
       </div>
     );
   }

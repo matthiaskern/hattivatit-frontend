@@ -1,10 +1,28 @@
+html,
+body {
+  height: 100%;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.container {
+  margin: 1rem;
+}
+
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+}
+
+.footer-bottom {
+  position: absolute;
+  bottom: 50px;
+}
+
+.footer-bottom img {
+  width: 60%; 
 }
 
 .App-header {
@@ -49,9 +67,9 @@
   top: 50%;
   height: 100%;
   width: 100%;
-  -webkit-transform: translate(-50%,-50%);
-      -ms-transform: translate(-50%,-50%);
-          transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .OfferDivMain {
@@ -76,16 +94,16 @@
 }
 
 .BookNow {
-    background-color: #0D1973;
-    border: none;
-    color: white;
-    padding: 0.6em 1.3em;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1.2em;
-    font-weight: normal;
-    margin-right: 5vw;
+  background-color: #0d1973;
+  border: none;
+  color: white;
+  padding: 0.6em 1.3em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.2em;
+  font-weight: normal;
+  margin-right: 5vw;
 }
 
 .likeWrapper {
@@ -96,7 +114,6 @@
 }
 
 .likeWrapper img {
-  
 }
 
 .offerWrapper {
@@ -120,25 +137,23 @@
 
 .from {
   margin-top: 0.2em;
-  color: #0D1973;
+  color: #0d1973;
   display: inline-block;
-  font-size: 1.0em;
+  font-size: 1em;
 }
 
 .price {
-  margin-top: 0.0em;
+  margin-top: 0em;
   font-family: 'Teko', sans-serif;
-  color: #0D1973;
+  color: #0d1973;
   display: inline-block;
-  font-size: 2.0em;
+  font-size: 2em;
   font-weight: bold;
 }
 
-
-::-webkit-scrollbar { 
-  display: none; 
+::-webkit-scrollbar {
+  display: none;
 }
-
 
 .Banner {
   position: relative;
@@ -152,9 +167,9 @@
   top: 50%;
   height: auto;
   width: 100%;
-  -webkit-transform: translate(-50%,-50%);
-      -ms-transform: translate(-50%,-50%);
-          transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 .thumbnail .Portrait {
   width: 100%;
@@ -162,14 +177,17 @@
 }
 
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
-
 
 /* 
 * Add Frost effect on top of the banner image
-*/ 
+*/
 
 #overlay {
   position: absolute;
@@ -187,7 +205,7 @@
 }
 
 #blursvg {
-  position: absolute; 
+  position: absolute;
   top: 0;
   filter: blur(5px);
   display: none;
