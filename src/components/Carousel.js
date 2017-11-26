@@ -14,17 +14,17 @@ const settings = {
 };
 
 export default class Carousel extends Component {
-  state = {
-    currentIndex: 0
+  state = { 
+    
   }
 
   render() {
     const { currentIndex } = this.state;
 
     return (
-        <Slider className="App" {...settings} beforeChange={currentIndex => this.setState({ currentIndex })}>
-        {this.props.offers.map((offer, index) => (
-          <div key={offer.to}>
+        <Slider className="App" {...settings}>
+          {this.props.offers.map((offer, index) => (
+            <div key={offer.to} onTouchStart={() => this.setState({ currentIndex: index })} onClick={() => this.setState({ currentIndex: index })}>
             <Audio url={offer.trackUrl} active={index === currentIndex} />
             <Banner src={offer.images && offer.images[0].images.standard_resolution.url} title={offer.artist + ' - ' + offer.trackName} />
             <Offer to={offer.to} price={offer.price} />
