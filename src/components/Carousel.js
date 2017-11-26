@@ -3,6 +3,7 @@ import Banner from './Banner';
 import Slider from 'react-slick';
 import InstagramReelContainer from './InstagramReelContainer'
 import Offer from './Offer'
+import Audio from './Audio'
 
 const settings = {
   dots: false,
@@ -13,14 +14,18 @@ const settings = {
 };
 
 export default class Carousel extends Component {
+  state = {
+    currentIndex: 0
+  }
+
   render() {
+    const { currentIndex } = this.state;
+
     return (
-      <Slider className="App" {...settings}>
-        {this.props.offers.map(offer => (
+        <Slider className="App" {...settings} beforeChange={currentIndex => this.setState({ currentIndex })}>
+        {this.props.offers.map((offer, index) => (
           <div key={offer.to}>
-            <audio controls style={{ display: 'none' }}>
-              <source src={offer.trackUrl} />
-            </audio>
+            <Audio url={offer.trackUrl} active={index === currentIndex} />
             <Banner src={offer.images && offer.images[0].images.standard_resolution.url} title={offer.artist + ' - ' + offer.trackName} />
             <Offer to={offer.to} price={offer.price} />
             {offer.images && 
