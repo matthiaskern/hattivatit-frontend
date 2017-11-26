@@ -134,7 +134,7 @@ main {
 
 .city {
   font-size: 1.5em;
-  margin-top: 0.9em;
+  margin-top: 0.7em;
   margin-bottom: 0.1em;
   font-family: Helvetica;
   color: rgb(75, 75, 75);
@@ -142,6 +142,8 @@ main {
 
 .from {
   margin-top: 0.2em;
+  margin-bottom:0.0em;
+  padding-bottom: 0.0em;
   color: #0d1973;
   display: inline-block;
   font-size: 1em;
