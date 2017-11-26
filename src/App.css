@@ -3,6 +3,11 @@ body {
   height: 100%;
 }
 
+main {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 .App {
   text-align: center;
 }
