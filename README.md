@@ -1,4 +1,12 @@
-Component tree:
+# Coddiwomple
+
+## Dev
+
+```npm start```
+
+## Component tree:
+
+* Landing
 * Root / Navi sw
   * Spotify Player
   * Banner
